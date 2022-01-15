@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+    mongodb:
+        image: mongo:latest
+        container_name: mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: AdminUser
+            MONGO_INITDB_ROOT_PASSWORD: Adm23USR
+            MONGO_INITDB_DATABASE: TestDB
+        ports:
+            - 27017:27017
+        volumes:
+            - ./mongo_script_.*js:/docker-entrypoint-initdb.d/mongo-init.js:ro
